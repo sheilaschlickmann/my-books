@@ -16,7 +16,5 @@ public interface BookRepository extends JpaRepository<Book, UUID> {
 	List<Book> findByLido(String lido);
 
 	List<Book> findByEmprestado(String emprestado);
-	
-	boolean existsByLido(String lido);
 
 }
