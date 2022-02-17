@@ -1,5 +1,6 @@
 package com.ms.books.controllers;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -65,6 +66,16 @@ public class BookController {
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(bookModelOptional.get());
 
+	}
+
+	@GetMapping("/lido/{lido}")
+	public ResponseEntity<List<Book>> getReadBook(@PathVariable(value = "lido") String lido) {
+		return ResponseEntity.status(HttpStatus.OK).body(bookService.findByLido(lido));
+	}
+
+	@GetMapping("/emprestado/{emprestado}")
+	public ResponseEntity<List<Book>> getBorrowedBook(@PathVariable(value = "emprestado") String emprestado) {
+		return ResponseEntity.status(HttpStatus.OK).body(bookService.findByEmprestado(emprestado));
 	}
 
 	@DeleteMapping("/{id}")

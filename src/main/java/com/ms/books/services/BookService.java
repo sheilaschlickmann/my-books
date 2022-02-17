@@ -1,5 +1,6 @@
 package com.ms.books.services;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -43,6 +44,14 @@ public class BookService {
 	public void delete(Book book) {
 		bookRepository.delete(book);
 
+	}
+
+	public List<Book> findByLido(String lido) {
+		return bookRepository.findByLido(lido);
+	}
+
+	public List<Book> findByEmprestado(String emprestado) {
+		return bookRepository.findByEmprestado(emprestado);
 	}
 
 }
