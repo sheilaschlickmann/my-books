@@ -2,7 +2,6 @@ package com.ms.books.services;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import javax.transaction.Transactional;
 
@@ -36,7 +35,7 @@ public class BookService {
 		return bookRepository.findAll(pageable);
 	}
 
-	public Optional<Book> findById(UUID id) {
+	public Optional<Book> findById(Long id) {
 		return bookRepository.findById(id);
 	}
 

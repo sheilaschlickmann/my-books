@@ -2,7 +2,6 @@ package com.ms.books.controllers;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -59,7 +58,7 @@ public class BookController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Object> getOneBook(@PathVariable(value = "id") UUID id) {
+	public ResponseEntity<Object> getOneBook(@PathVariable(value = "id") Long id) {
 		Optional<Book> bookModelOptional = bookService.findById(id);
 		if (!bookModelOptional.isPresent()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Book not found!");
@@ -79,7 +78,7 @@ public class BookController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Object> deleteBook(@PathVariable(value = "id") UUID id) {
+	public ResponseEntity<Object> deleteBook(@PathVariable(value = "id") Long id) {
 		Optional<Book> bookModelOptional = bookService.findById(id);
 		if (!bookModelOptional.isPresent()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Book not found!");
@@ -90,7 +89,7 @@ public class BookController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Object> updateBook(@PathVariable(value = "id") UUID id, @RequestBody @Valid BookDto bookDto) {
+	public ResponseEntity<Object> updateBook(@PathVariable(value = "id") Long id, @RequestBody @Valid BookDto bookDto) {
 		Optional<Book> bookModelOptional = bookService.findById(id);
 
 		if (!bookModelOptional.isPresent()) {
